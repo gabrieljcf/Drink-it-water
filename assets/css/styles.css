@@ -126,3 +126,9 @@ footer {
         transform: translateX(-1600px);
     }
 }
+
+@media (max-width:500px)  {
+    footer {
+        margin-top: 100px;
+    }
+}

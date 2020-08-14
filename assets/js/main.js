@@ -112,6 +112,4 @@ class Main {
   }
 }
 
-//O cálculo é dado pela seguinte fórmula matemática e vale para ambos os sexos: 35 ml X peso corporal (em kg)
-
 new Main();
