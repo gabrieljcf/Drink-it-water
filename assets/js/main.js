@@ -13,7 +13,7 @@ class Main {
   getDataFromStorage() {
     if (!this.dataUser) {
       this.renderInputsFromUser();
-      this.calculate();
+      this.calculateNeededWater();
     } else {
       this.renderNeededWaterFromUser();
     }
@@ -38,6 +38,8 @@ class Main {
   }
 
   renderNeededWaterFromUser() {
+    this.containerEl.innerHTML = '';
+    
     if (this.inputWeightEl.value && this.inputNameEl.value) {
       this.inputWeightEl.remove();
       this.inputNameEl.remove();
@@ -58,9 +60,18 @@ class Main {
     this.containerEl.appendChild(inputEl);
     this.containerEl.appendChild(buttonEl);
 
+    buttonEl.onclick = () => this.calculate(inputEl.value);
   }
 
-  calculate() {
+  calculate(water = 0) {
+    const waterNeeded = this.dataUser.waterNeeded - water;
+    this.dataUser.waterNeeded = waterNeeded;
+
+    this.saveToStorage();
+    this.renderNeededWaterFromUser();
+  }
+
+  calculateNeededWater() {
     this.buttonEl.onclick = () => {
 
       if (!this.inputWeightEl.value && this.inputNameEl.value) {
