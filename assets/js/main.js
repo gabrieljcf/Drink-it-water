@@ -88,6 +88,7 @@ class Main {
     this.containerEl.appendChild(containerForButtons);
 
     buttonEl.onclick = () => this.calculate(inputEl.value, title);
+    restartButton.onclick = () => this.restart();
     setInterval(this.waterNotification, this.userData.timer);
   }
 
@@ -120,12 +121,19 @@ class Main {
         this.userData = {
           name: this.inputNameEl.value,
           waterNeeded,
+          dailyWaterNeeded: waterNeeded,
           timer,
         }
         this.saveToStorage();
         this.renderNeededWaterFromUser();
       }
     }
+  }
+
+  restart() {
+    this.userData.waterNeeded = this.userData.dailyWaterNeeded;
+    this.saveToStorage();
+    this.renderNeededWaterFromUser();
   }
 
   notification() {
@@ -152,6 +160,11 @@ class Main {
   saveToStorage() {
     localStorage.setItem('data_user', JSON.stringify(this.userData));
   }
+  
+  renderLoading() {
+
+  }
 }
+
 
 new Main();
