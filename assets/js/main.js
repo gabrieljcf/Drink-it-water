@@ -4,10 +4,10 @@ class Main {
     this.inputNameEl = '';
     this.inputTime = 0;
     this.buttonEl = '';
-    
+
     this.userData = JSON.parse(localStorage.getItem('data_user'));
     this.containerEl = document.querySelector('#app');
-    
+
     this.getDataFromStorage();
     this.notification();
   }
@@ -27,6 +27,9 @@ class Main {
     const inputName = document.createElement('input');
     inputName.setAttribute('placeholder', 'Informe seu Nome');
 
+    const containerForInputs = document.createElement('div');
+    containerForInputs.setAttribute('class', 'container-for-inputs');
+
     const inputWeight = document.createElement('input');
     inputWeight.setAttribute('placeholder', 'Informe seu Peso');
 
@@ -44,8 +47,9 @@ class Main {
     this.buttonEl = buttonEl;
 
     this.containerEl.appendChild(inputName);
-    this.containerEl.appendChild(inputWeight);
-    this.containerEl.appendChild(inputTime);
+    containerForInputs.appendChild(inputWeight);
+    containerForInputs.appendChild(inputTime);
+    this.containerEl.appendChild(containerForInputs);
     this.containerEl.appendChild(buttonEl);
   }
 
@@ -64,15 +68,24 @@ class Main {
     const inputEl = document.createElement('input');
     inputEl.setAttribute('placeholder', 'Informe quantas ml de água você bebeu');
 
+    const containerForButtons = document.createElement('div');
+    containerForButtons.setAttribute('class', 'container-for-buttons');
+
     const buttonEl = document.createElement('button');
     const textButton = document.createTextNode('Beber água');
 
+    const restartButton = document.createElement('button');
+    const textRestartButton = document.createTextNode('Reiniciar');
+
     buttonEl.appendChild(textButton);
+    restartButton.appendChild(textRestartButton);
 
     title.appendChild(textOnTitle);
     this.containerEl.appendChild(title);
     this.containerEl.appendChild(inputEl);
-    this.containerEl.appendChild(buttonEl);
+    containerForButtons.appendChild(buttonEl);
+    containerForButtons.appendChild(restartButton);
+    this.containerEl.appendChild(containerForButtons);
 
     buttonEl.onclick = () => this.calculate(inputEl.value, title);
     setInterval(this.waterNotification, this.userData.timer);
@@ -133,7 +146,7 @@ class Main {
       body: "Beber água"
     });
 
-    notification.onclick = window.href = "http://127.0.0.1:5500/index.html";
+    notification.onclick = window.href = "http://127.0.0.1:8080/index.html";
   }
 
   saveToStorage() {

@@ -31,7 +31,7 @@ main #app {
 }
 
 main #app input {
-    width: 80%;
+    width: 100%;
     background: none;
     margin-top: 2rem;
     border: none;
@@ -48,8 +48,22 @@ main #app input::placeholder {
     font-size: 1rem;
 }
 
+main #app .container-for-inputs,
+main #app .container-for-buttons {
+    width: 100%;
+    display: flex;
+    z-index: 2;
+    justify-content: space-between;
+}
+
+main #app .container-for-inputs input,
+main #app .container-for-buttons button {
+    width: 48%;
+}   
+
+
 main #app button {
-    width: 80%;
+    width: 100%;
     padding: .6rem;
     background: #fff;
     margin-top: 2rem;
