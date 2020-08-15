@@ -2,12 +2,14 @@ class Main {
   constructor() {
     this.inputWeightEl = '';
     this.inputNameEl = '';
+    this.inputTime = 0;
     this.buttonEl = '';
-
+    
     this.userData = JSON.parse(localStorage.getItem('data_user'));
     this.containerEl = document.querySelector('#app');
-
+    
     this.getDataFromStorage();
+    this.notification();
   }
 
   getDataFromStorage() {
@@ -28,6 +30,9 @@ class Main {
     const inputWeight = document.createElement('input');
     inputWeight.setAttribute('placeholder', 'Informe seu Peso');
 
+    const inputTime = document.createElement('input');
+    inputTime.setAttribute('placeholder', 'Minutos para ser notificado');
+
     const buttonEl = document.createElement('button');
     const textButton = document.createTextNode('Calcular');
 
@@ -35,10 +40,12 @@ class Main {
 
     this.inputNameEl = inputName;
     this.inputWeightEl = inputWeight;
+    this.inputTime = inputTime;
     this.buttonEl = buttonEl;
 
     this.containerEl.appendChild(inputName);
     this.containerEl.appendChild(inputWeight);
+    this.containerEl.appendChild(inputTime);
     this.containerEl.appendChild(buttonEl);
   }
 
@@ -68,6 +75,7 @@ class Main {
     this.containerEl.appendChild(buttonEl);
 
     buttonEl.onclick = () => this.calculate(inputEl.value, title);
+    setInterval(this.waterNotification, this.userData.timer);
   }
 
   calculate(water = 0) {
@@ -94,17 +102,38 @@ class Main {
 
         const weight = this.inputWeightEl.value;
         const waterNeeded = 35 * weight;
+        const timer = this.inputTime.value * 60000;
 
         this.userData = {
           name: this.inputNameEl.value,
-          waterNeeded
+          waterNeeded,
+          timer,
         }
         this.saveToStorage();
         this.renderNeededWaterFromUser();
-
       }
-
     }
+  }
+
+  notification() {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!Notification) {
+        alert('Desktop notification');
+        return;
+      }
+      if (Notification.permission !== 'grated') {
+        Notification.requestPermission();
+      }
+    });
+  }
+
+  waterNotification() {
+    const notification = new Notification('Beber água', {
+      icon: "http://127.0.0.1:8080/assets/images/cup.png",
+      body: "Beber água"
+    });
+
+    notification.onclick = window.href = "http://127.0.0.1:5500/index.html";
   }
 
   saveToStorage() {
