@@ -8,8 +8,14 @@ class Main {
     this.userData = JSON.parse(localStorage.getItem('data_user'));
     this.containerEl = document.querySelector('#app');
 
-    this.getDataFromStorage();
+    this.renderLoading();
+
+    setTimeout(() => {
+      this.getDataFromStorage();
+    }, 3000);
+
     this.notification();
+
   }
 
   getDataFromStorage() {
@@ -89,6 +95,7 @@ class Main {
 
     buttonEl.onclick = () => this.calculate(inputEl.value, title);
     restartButton.onclick = () => this.restart();
+
     setInterval(this.waterNotification, this.userData.timer);
   }
 
@@ -125,7 +132,12 @@ class Main {
           timer,
         }
         this.saveToStorage();
-        this.renderNeededWaterFromUser();
+        
+        this.renderLoading();
+
+        setTimeout(() => {
+          this.renderNeededWaterFromUser();
+        }, 3000);
       }
     }
   }
@@ -160,8 +172,14 @@ class Main {
   saveToStorage() {
     localStorage.setItem('data_user', JSON.stringify(this.userData));
   }
-  
-  renderLoading() {
+
+   renderLoading() {
+    this.containerEl.innerHTML = '';
+    
+    const loading = document.createElement('div');
+    loading.setAttribute('class', 'spinner');
+
+    this.containerEl.appendChild(loading);
 
   }
 }

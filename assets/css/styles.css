@@ -16,16 +16,15 @@ h1 {
     font-size: 2.5rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     text-align: center;
-    margin-top: 1.6rem;
+    margin-top: 10rem;
     z-index: 2;
 }
 
 main #app {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    margin: 2rem auto;
+    margin: 0 auto;
     max-width: 30rem;
     z-index: 2;
 }
@@ -33,7 +32,7 @@ main #app {
 main #app input {
     width: 100%;
     background: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     border: none;
     border-bottom: 2px solid hsla(0, 0%, 100%, 0.842);
     outline: none;
@@ -44,29 +43,26 @@ main #app input {
 }
 
 main #app input::placeholder {
-    color: hsla(0, 0%, 100%, 0.822);
+    color: hsla(0, 0%, 95%, 0.884);
     font-size: 1rem;
 }
 
-main #app .container-for-inputs,
-main #app .container-for-buttons {
+main #app .container-for-inputs, main #app .container-for-buttons {
     width: 100%;
     display: flex;
     z-index: 2;
     justify-content: space-between;
 }
 
-main #app .container-for-inputs input,
-main #app .container-for-buttons button {
+main #app .container-for-inputs input, main #app .container-for-buttons button {
     width: 48%;
-}   
-
+}
 
 main #app button {
     width: 100%;
     padding: .6rem;
     background: #fff;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border: none;
     outline: none;
     color: #024b61;
@@ -95,14 +91,31 @@ main #app button:hover:before {
 }
 
 main #app h1 {
-    max-width: 100%;
+    width: 100%;
     font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #22a6b3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.2s linear infinite;
+    z-index: 2;
 }
 
 footer {
     background: #024b61;
     position: relative;
-    margin-top: 190px;
+    margin-top: 150px;
 }
 
 .waves {
@@ -142,8 +155,16 @@ footer {
     }
 }
 
-@media (max-width:500px)  {
+@media (max-width:500px) {
     footer {
-        margin-top: 100px;
+        margin-top: 80px;
+    }
+
+    main #app {
+        width: 80%;
+    }
+
+    .spinner {
+        margin-top: 2rem;
     }
 }
