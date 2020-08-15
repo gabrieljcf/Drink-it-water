@@ -52,7 +52,7 @@ class Main {
     }
 
     const title = document.createElement('h1');
-    const textOnTitle = document.createTextNode(`${this.userData.name} Você precisa de ${this.userData.waterNeeded} ml`);
+    const textOnTitle = document.createTextNode(`${this.userData.name} Você precisa beber ${this.userData.waterNeeded} ml de água para completar sua meta diária`);
 
     const inputEl = document.createElement('input');
     inputEl.setAttribute('placeholder', 'Informe quantas ml de água você bebeu');
