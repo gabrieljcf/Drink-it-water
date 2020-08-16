@@ -1,15 +1,11 @@
 <h1 align="center">
-    <img alt="getckal" title="Proffy" src="/assets/images/logo.svg" width="40%"/>
+  <img alt="Drink it water" src="/assets/images/drinkItWater.png" width="70%">
 </h1>
 
 <p align="center">
-  <img alt="Proffy" src="/assets/images/screen.png" width="70%">
-</p>
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=66c3d0&labelColor=000000" alt="PRs welcome!" />
 
-<p align="center">
- <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=8257E5&labelColor=000000" alt="PRs welcome!" />
-
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=66c3d0&labelColor=000000">
 </p>
 
 <br>
@@ -22,24 +18,29 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [CSS3](https://www.w3schools.com/css/)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
+## 📚 Sobre
+A aplicação calcula o quanto de água que você precisa tomar diariamente e permite que você possa ser notificado para que se lembre de beber água, podemos informar em quantos minutos queremos ser notificados e também informar quantas ml de água acabou de tomar, assim a aplicação subtrai o valor ingerido da sua meta diária
+
 ## 💻 Projeto
 
-O getkCal é uma aplicação que calcula a taxa de matabolismo basal
-
-## 📖 O que é metabolismo basal
-Metabolismo basal ou Taxa metabólica basal é um(a) meio/forma matemático(a), não exato(a), de calcular a quantidade calórica que o corpo necessita, em vinte e quatro horas, para manter-se nutrido durante o decorrer das atividades diárias, e/ou fazendo um jejum de pelo menos doze horas em repouso, sem prejudicar o funcionamento dos principais órgãos.
-Wikipedia
+Drink it water é uma aplicação que tem como proposito ajudar as pessoas a se lembrar de beber água
 
 
 ## Como instalar na sua maquina
 
-Para clonar e executar a aplicação, você precisa ter [Git](https://git-scm.com) instalado em seu computador
+Para clonar e executar a aplicação, você precisa ter [Git](https://git-scm.com) e [Node](https://nodejs.org/) instalado em seu computador, não é obrigatório usar o live-server
 
 Em seu terminal:
 
 ```bash
 # Clone this repository
 $ git clone https://github.com/gabrieljcf/getkcal.git
+
+# install dependencies
+$ npm install
+
+# go project
+$ npm start
 
 
 ## 🤔 Como contribuir
@@ -51,6 +52,6 @@ $ git clone https://github.com/gabrieljcf/getkcal.git
 
 ## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença MIT.
 
 ---

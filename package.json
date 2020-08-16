@@ -1,0 +1,14 @@
+{
+  "name": "water",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gabrieljcf/Drink-it-water.git",
+  "author": "Gabriel Nogueira <gabrieljcf@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "start": "live-server"
+  }
+}
