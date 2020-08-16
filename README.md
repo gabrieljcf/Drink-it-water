@@ -34,7 +34,7 @@ Em seu terminal:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/gabrieljcf/getkcal.git
+$ git clone https://github.com/gabrieljcf/Drink-it-water.git
 
 # install dependencies
 $ npm install
